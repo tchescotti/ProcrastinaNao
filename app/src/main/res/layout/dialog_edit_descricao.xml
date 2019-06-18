@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/textViewNovaDescricao"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_top"
+        android:backgroundTint="@color/colorSecondary"
+        android:fontFamily="serif"
+        android:paddingTop="15dp"
+        android:text="@string/obj_edit_descricao"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextAlterarDescricao"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:background="@drawable/objetivos_shape"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:hint="@string/nome_descricao"
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="150"
+        android:lines="4"
+        android:maxLines="4"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:scrollbars="vertical"
+        android:textAlignment="center"
+        android:textColor="#333"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNovaDescricao" />
+
+    <Button
+        android:id="@+id/buttonDialogDescricao"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_bottom"
+        android:backgroundTint="@color/colorGreen"
+        android:fontFamily="serif"
+        android:text="@string/alterar"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAlterarDescricao" />
+
+</android.support.constraint.ConstraintLayout>

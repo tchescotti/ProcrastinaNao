@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/textViewNomeAtividade"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/objetivos_shape"
+        android:fontFamily="serif"
+        android:paddingStart="65dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="15dp"
+        android:text="@string/nome_atividade"
+        android:textAlignment="viewStart"
+        android:textColor="#333"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/bordaAtividade"
+        android:layout_width="10dp"
+        android:layout_height="50dp"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNomeAtividade"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNomeAtividade"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewNomeAtividade"
+        app:layout_constraintTop_toTopOf="@+id/textViewNomeAtividade"
+        app:srcCompat="@drawable/borda_objetos_shape" />
+
+    <TextView
+        android:id="@+id/textViewTempo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="6dp"
+        android:text="@string/tempo"
+        android:textAlignment="textEnd"
+        android:textColor="#333"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNomeAtividade"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNomeAtividade"
+        app:layout_constraintTop_toTopOf="@+id/textViewNomeAtividade" />
+
+    <ImageView
+        android:id="@+id/imageViewIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewNomeAtividade"
+        app:layout_constraintStart_toStartOf="@+id/bordaAtividade"
+        app:layout_constraintTop_toTopOf="@+id/textViewNomeAtividade"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+</android.support.constraint.ConstraintLayout>

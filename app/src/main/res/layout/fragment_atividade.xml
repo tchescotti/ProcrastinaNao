@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewAtividade"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/header_atividade"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="8sp"
+        android:paddingStart="25dp"
+        android:paddingTop="100dp"
+        android:paddingEnd="25dp"
+        android:text="@string/titulo_atividade"
+        android:textAlignment="textStart"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/_dynamicAtividade"
+        android:layout_width="0dp"
+        android:layout_height="315dp"
+        android:layout_marginTop="10dp"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAtividade" />
+
+</android.support.constraint.ConstraintLayout>

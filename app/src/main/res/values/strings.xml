@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ProcrastinaNao</string>
+    <string name="title_inicio">Início</string>
+    <string name="title_atividade">Início</string>
+    <string name="titulo_atividade"><b>ATIVIDADE</b>\nTempo gasto em apps</string>
+    <string name="titulo_inicio"><b>PROCRASTINA NÃO</b>\nFaça de seus sonhos uma meta</string>
+    <string name="pesquise">Pesquise aqui</string>
+
+    <string name="obj_sobre">Sobre</string>
+    <string name="obj_descricao">Descrição</string>
+    <string name="obj_data">Conclusão</string>
+    <string name="obj_novo">NOVO OBJETIVO</string>
+
+    <string name="obj_edit_sobre">ETIQUETA</string>
+    <string name="obj_edit_descricao">DESCRIÇÃO</string>
+
+    <string name="add">Adicionar</string>
+    <string name="remover">Remover</string>
+    <string name="alterar">Alterar</string>
+
+    <string name="nome_obj">Digite seu objetivo</string>
+    <string name="nome_etiqueta">Nome da etiqueta</string>
+    <string name="nome_descricao">Nome do objetivo</string>
+
+    <string name="nome_atividade">Atividade</string>
+    <string name="tempo">99h99m99s</string>
+</resources>

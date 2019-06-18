@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "235386983194",
+    "firebase_url": "https://procrastinanao-8e612.firebaseio.com",
+    "project_id": "procrastinanao-8e612",
+    "storage_bucket": "procrastinanao-8e612.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235386983194:android:307d51fc3113bcfa",
+        "android_client_info": {
+          "package_name": "com.example.scotti.procrastinanao"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235386983194-j7rotakns1ennce7hspn9njm6fkeof3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbC3i7hbfLpKBQjcBqeklxccO_LKx1rpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235386983194-j7rotakns1ennce7hspn9njm6fkeof3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/textViewNovaEtiqueta"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_top"
+        android:backgroundTint="@color/colorSecondary"
+        android:fontFamily="serif"
+        android:paddingTop="15dp"
+        android:text="@string/obj_edit_sobre"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextAlterarEtiqueta"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/objetivos_shape"
+        android:ems="10"
+        android:fontFamily="serif"
+        android:hint="@string/nome_etiqueta"
+        android:inputType="textCapSentences"
+        android:maxLength="25"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:textAlignment="center"
+        android:textColor="#333"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNovaEtiqueta" />
+
+    <Button
+        android:id="@+id/buttonDialogSobre"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_bottom"
+        android:backgroundTint="@color/colorGreen"
+        android:fontFamily="serif"
+        android:text="@string/alterar"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAlterarEtiqueta" />
+
+</android.support.constraint.ConstraintLayout>

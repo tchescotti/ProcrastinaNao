@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <TextView
+        android:id="@+id/textViewObjetivo"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/header_atividade"
+        android:fontFamily="serif"
+        android:lineSpacingExtra="8sp"
+        android:paddingTop="120dp"
+        android:paddingBottom="25dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewSobre"
+        android:layout_width="0dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/objetivos_shape" />
+
+    <TextView
+        android:id="@+id/SobreObjetivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:fontFamily="serif"
+        android:paddingTop="15dp"
+        android:text="@string/obj_sobre"
+        android:textColor="#333"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/dividerSobre"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dividerSobre"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSobre" />
+
+    <Button
+        android:id="@+id/buttonEditSobre"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/ic_edit"
+        android:backgroundTint="#bbb"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewObjetivo"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewSobre"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/SobreObjetivo"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSobre" />
+
+    <View
+        android:id="@+id/dividerSobre"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewSobre"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewSobre"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSobre"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSobre"
+        app:layout_constraintVertical_bias="0.352" />
+
+    <ImageView
+        android:id="@+id/imageViewDataCriacao"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="14dp"
+        android:tint="@color/colorSecondary"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSobre"
+        app:layout_constraintTop_toBottomOf="@+id/dividerSobre"
+        app:srcCompat="@mipmap/ic_prancheta" />
+
+    <TextView
+        android:id="@+id/TextViewDataCriacao"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="6dp"
+        android:fontFamily="serif"
+        android:paddingTop="15dp"
+        android:text="Objetivo criado em 12/06/19"
+        android:textColor="#333"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/dividerSobre"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDataCriacao"
+        app:layout_constraintTop_toBottomOf="@+id/dividerSobre" />
+
+    <ImageView
+        android:id="@+id/imageViewEtiqueta"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="14dp"
+        android:tint="@color/colorSecondary"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSobre"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDataCriacao"
+        app:srcCompat="@mipmap/ic_etiqueta" />
+
+    <TextView
+        android:id="@+id/textViewEtiqueta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="serif"
+        android:paddingTop="15dp"
+        android:text="Faculdade"
+        android:textColor="#333"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/dividerSobre"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageViewEtiqueta"
+        app:layout_constraintTop_toBottomOf="@+id/TextViewDataCriacao" />
+
+    <ImageView
+        android:id="@+id/imageViewDescricao"
+        android:layout_width="0dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSobre"
+        app:srcCompat="@drawable/objetivos_shape" />
+
+    <TextView
+        android:id="@+id/descricaoObjetivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:fontFamily="serif"
+        android:paddingTop="15dp"
+        android:text="@string/obj_descricao"
+        android:textColor="#333"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDescricao"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageViewDescricao"
+        app:layout_constraintTop_toTopOf="@+id/imageViewDescricao" />
+
+    <Button
+        android:id="@+id/buttonEditDescricao"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/ic_edit"
+        android:backgroundTint="#bbb"
+        app:layout_constraintBottom_toTopOf="@+id/dividerDescricao"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDescricao"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/descricaoObjetivo"
+        app:layout_constraintTop_toTopOf="@+id/imageViewDescricao"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/dividerDescricao"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="44dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDescricao"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageViewDescricao"
+        app:layout_constraintTop_toTopOf="@+id/imageViewDescricao" />
+
+    <TextView
+        android:id="@+id/textViewDescricao"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="serif"
+        android:paddingTop="15dp"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+        android:textColor="#333"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewDescricao"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewDescricao"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageViewDescricao"
+        app:layout_constraintTop_toBottomOf="@+id/dividerDescricao"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonRemover"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/objetivos_shape"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/remover"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDescricao" />
+
+</android.support.constraint.ConstraintLayout>
