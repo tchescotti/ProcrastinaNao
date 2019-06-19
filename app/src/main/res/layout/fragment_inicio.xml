@@ -14,20 +14,34 @@
         android:id="@+id/textViewTitulo"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:background="@drawable/header_inicio"
-        android:fontFamily="serif"
+        android:background="@drawable/header_azul"
+        android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
         android:paddingStart="25dp"
+        android:paddingTop="140dp"
         android:paddingEnd="25dp"
-        android:paddingTop="100dp"
         android:text="@string/titulo_inicio"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#fff"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPesquisa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.575"
+        app:srcCompat="@drawable/procrastinar_logo" />
 
     <EditText
         android:id="@+id/editTextPesquisa"
@@ -41,7 +55,7 @@
         android:drawablePadding="5dp"
         android:drawableTint="#bbb"
         android:ems="10"
-        android:fontFamily="serif"
+        android:fontFamily="sans-serif"
         android:hint="@string/pesquise"
         android:inputType="textCapSentences"
         android:paddingStart="20dp"
@@ -59,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="15dp"
         android:src="@mipmap/ic_add"
         android:tint="#fff"
         app:backgroundTint="@color/colorSecondary"
@@ -71,12 +85,14 @@
     <ListView
         android:id="@+id/_dynamicObjetivos"
         android:layout_width="0dp"
-        android:layout_height="273dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         android:divider="@null"
         android:listSelector="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPesquisa" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPesquisa"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

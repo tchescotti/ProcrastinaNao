@@ -3,23 +3,33 @@ package com.example.scotti.procrastinanao.pObjetivo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
-import com.example.scotti.procrastinanao.InicioFragment;
 import com.example.scotti.procrastinanao.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.scotti.procrastinanao.pObjetivo.Objetivo;
+import com.example.scotti.procrastinanao.pObjetivo.ObjetivoAdapter;
+import com.example.scotti.procrastinanao.pObjetivo.ObjetivoDialog;
+import com.example.scotti.procrastinanao.pObjetivo.ObjetivoInfoFragment;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 public class ObjetivoFragment extends Fragment {
 
-    private static final String TAG = "ObjetivoFragment";
+    private static final String TAG = "InicioFragmentTag";
+    ListView listViewObjetivo;
+    ArrayList<Objetivo> listObjetivo = new ArrayList<>();
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -27,90 +37,74 @@ public class ObjetivoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_info_objetivo, container, false);
+        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
-        TextView titulo = view.findViewById(R.id.textViewObjetivo);
-        TextView dia = view.findViewById(R.id.TextViewDataCriacao);
-        TextView etiqueta = view.findViewById(R.id.textViewEtiqueta);
-        TextView descricao = view.findViewById(R.id.textViewDescricao);
+        FloatingActionButton buttonAdd = (FloatingActionButton) view.findViewById(R.id.buttonAdd);
 
-        if(getArguments() != null){
-            titulo.setText(getArguments().getString("nome"));
-            dia.setText(getArguments().getString("dia"));
-            etiqueta.setText(getArguments().getString("etiqueta"));
-            descricao.setText(getArguments().getString("descricao"));
-        }
-
-
-
-        Button btnRemover = (Button) view.findViewById(R.id.buttonRemover);
-
-        btnRemover.setOnClickListener(new View.OnClickListener() {
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ObjetivoDialog dialog = new ObjetivoDialog();
+                dialog.show(getFragmentManager(), null);
+            }
+        });
 
-                getFragmentManager().beginTransaction().replace(R.id.fragment_container, new InicioFragment()).commit();
+        listViewObjetivo = (ListView) view.findViewById(R.id._dynamicObjetivos);
 
-                db.collection("objetivos").document(getArguments().getString("id"))
-                        .delete()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d(TAG, "DocumentSnapshot successfully deleted!");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error deleting document", e);
-                            }
-                        });
+        db.collection("objetivos").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+
+                if(e != null){
+                    Log.d(TAG, "OIA O ERRO AQUI: " + e.getMessage());
+                }
+
+                listObjetivo.clear();
+
+                for (DocumentSnapshot snapshot : documentSnapshots) {
+                    Objetivo objetivo =  new Objetivo();
+                    objetivo.setNome(snapshot.getString("nome"));
+                    objetivo.setDescricao(snapshot.getString("descricao"));
+                    objetivo.setEtiqueta(snapshot.getString("etiqueta"));
+                    objetivo.setId(snapshot.getId());
+                    objetivo.setDia(snapshot.getString("dia"));
+
+                    listObjetivo.add(objetivo);
+                }
+
+                if(getActivity() != null) {
+                    ObjetivoAdapter adapter = new ObjetivoAdapter(getActivity(), 0, listObjetivo);
+                    adapter.notifyDataSetChanged();
+                    listViewObjetivo.setAdapter(adapter);
+                }
 
             }
         });
 
-
-        Button btnEditSobre = (Button) view.findViewById(R.id.buttonEditSobre);
-
-        btnEditSobre.setOnClickListener(new View.OnClickListener() {
+        listViewObjetivo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                ObjetivoSobreDialog dialogSobre = new ObjetivoSobreDialog();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Objetivo objetivo = (Objetivo) listViewObjetivo.getItemAtPosition(position);
+
+                ObjetivoInfoFragment objetivoInfoFragment = new ObjetivoInfoFragment();
 
                 Bundle bundle = new Bundle();
-                bundle.putString("nome", getArguments().getString("nome"));
-                bundle.putString("dia", getArguments().getString("dia"));
-                bundle.putString("etiqueta", getArguments().getString("etiqueta"));
-                bundle.putString("descricao", getArguments().getString("descricao"));
-                bundle.putString("id", getArguments().getString("id"));
+                bundle.putString("nome", objetivo.getNome());
+                bundle.putString("dia", "Criado em " + objetivo.getDia());
+                bundle.putString("etiqueta", objetivo.getEtiqueta());
+                bundle.putString("descricao", objetivo.getDescricao());
+                bundle.putString("id", objetivo.getId());
 
-                dialogSobre.setArguments(bundle);
+                objetivoInfoFragment.setArguments(bundle);
 
-                dialogSobre.show(getFragmentManager(), null);
-            }
-        });
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container, objetivoInfoFragment).commit();
 
-        Button btnEditDescricao = (Button) view.findViewById(R.id.buttonEditDescricao);
-
-        btnEditDescricao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ObjetivoDescricaoDialog dialogDescricao = new ObjetivoDescricaoDialog();
-
-                Bundle bundle = new Bundle();
-                bundle.putString("nome", getArguments().getString("nome"));
-                bundle.putString("dia", getArguments().getString("dia"));
-                bundle.putString("etiqueta", getArguments().getString("etiqueta"));
-                bundle.putString("descricao", getArguments().getString("descricao"));
-                bundle.putString("id", getArguments().getString("id"));
-
-                dialogDescricao.setArguments(bundle);
-
-                dialogDescricao.show(getFragmentManager(), null);
             }
         });
 
         return view;
     }
+
 
 }

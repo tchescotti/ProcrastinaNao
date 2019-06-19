@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.scotti.procrastinanao.InicioFragment;
 import com.example.scotti.procrastinanao.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -56,7 +55,7 @@ public class ObjetivoDescricaoDialog extends DialogFragment {
                     Toast.makeText(getContext(), "Descrição alterada", Toast.LENGTH_SHORT).show();
 
                     dismiss();
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, new InicioFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, new ObjetivoFragment()).commit();
                 }
             }
         });

@@ -1,23 +1,23 @@
 package com.example.scotti.procrastinanao;
 
-import android.Manifest;
 import android.app.AppOpsManager;
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Process;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
+
+import com.example.scotti.procrastinanao.pAtividade.Atividade;
+import com.example.scotti.procrastinanao.pAtividade.AtividadeFragment;
+import com.example.scotti.procrastinanao.pObjetivo.ObjetivoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +29,10 @@ import static android.app.AppOpsManager.OPSTR_GET_USAGE_STATS;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivityUsage";
+    public ArrayList<Atividade> listUsageStats = new ArrayList<>();
 
         //NAVEGAÇÃO MENU
+        public BottomNavigationView navigation;
         private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_inicio:
-                    fragment = new InicioFragment();
+                    fragment = new ObjetivoFragment();
                     break;
 
                 case R.id.navigation_atividade:
@@ -60,23 +61,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //PERMISSÃO
-        if(checkForPermission(getApplicationContext()) == false){
-            startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
-        }
-
         //USAGE
-        //UsageStats();
+        listUsageStats = UsageStats();
 
         //NAVEGAÇÃO
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InicioFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ObjetivoFragment()).commit();
 
     }
 
-    private boolean checkForPermission(Context context) {
+    public boolean checkForPermission(Context context) {
         AppOpsManager appOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
         int mode = appOps.checkOpNoThrow(OPSTR_GET_USAGE_STATS, Process.myUid(), context.getPackageName());
         return mode == MODE_ALLOWED;

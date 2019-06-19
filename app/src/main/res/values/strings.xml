@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">ProcrastinaNao</string>
     <string name="title_inicio">Início</string>
-    <string name="title_atividade">Início</string>
+    <string name="title_atividade">Atividade</string>
     <string name="titulo_atividade"><b>ATIVIDADE</b>\nTempo gasto em apps</string>
-    <string name="titulo_inicio"><b>PROCRASTINA NÃO</b>\nFaça de seus sonhos uma meta</string>
+    <string name="titulo_inicio">Faça de seus sonhos uma meta!</string>
     <string name="pesquise">Pesquise aqui</string>
 
     <string name="obj_sobre">Sobre</string>
@@ -24,4 +24,6 @@
 
     <string name="nome_atividade">Atividade</string>
     <string name="tempo">99h99m99s</string>
+
+    <string name="permissao">Permita-nos ver sua atividade</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.scotti.procrastinanao;
+package com.example.scotti.procrastinanao.pAtividade;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.scotti.procrastinanao.R;
 
 import java.util.ArrayList;
 
@@ -55,6 +57,7 @@ public class AtividadeAdapter extends ArrayAdapter<Atividade> {
         TextView nome = (TextView) convertView.findViewById(R.id.textViewNomeAtividade);
         TextView tempo = (TextView) convertView.findViewById(R.id.textViewTempo);
         ImageView icon = (ImageView) convertView.findViewById(R.id.imageViewIcon);
+        ImageView borda = (ImageView) convertView.findViewById(R.id.imageViewIcon);
 
         nome.setText(atividade.getNome());
         tempo.setText(atividade.getTempo());

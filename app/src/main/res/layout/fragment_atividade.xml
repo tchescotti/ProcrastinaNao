@@ -4,20 +4,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#eee">
 
     <TextView
         android:id="@+id/textViewAtividade"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:background="@drawable/header_atividade"
-        android:fontFamily="serif"
+        android:background="@drawable/header_amarelo"
+        android:fontFamily="sans-serif"
         android:lineSpacingExtra="8sp"
         android:paddingStart="25dp"
         android:paddingTop="100dp"
         android:paddingEnd="25dp"
         android:text="@string/titulo_atividade"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,12 +29,30 @@
     <ListView
         android:id="@+id/_dynamicAtividade"
         android:layout_width="0dp"
-        android:layout_height="315dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
         android:divider="@null"
         android:listSelector="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAtividade" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAtividade"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buttonPermissao"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/objetivos_shape"
+        android:backgroundTint="@color/colorSecondary"
+        android:text="@string/permissao"
+        android:textColor="#fff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/_dynamicAtividade"
+        app:layout_constraintEnd_toEndOf="@+id/_dynamicAtividade"
+        app:layout_constraintStart_toStartOf="@+id/_dynamicAtividade"
+        app:layout_constraintTop_toTopOf="@+id/_dynamicAtividade" />
 
 </android.support.constraint.ConstraintLayout>
